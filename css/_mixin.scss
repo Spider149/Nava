@@ -1,0 +1,32 @@
+@mixin background {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin flex($direction:row,$align:center,$justify:space-between){
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin border($size:1px,$style:solid,$color:black){
+    border: $size $style $color;
+}
+
+@mixin all-space {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@mixin same-height-vertical-form {
+    padding: 2rem 2.5rem;
+    border: 0;
+    font-family: inherit;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
