@@ -1,0 +1,24 @@
+.hire-boat {
+    padding: 18.5rem 0 8rem;
+    background: linear-gradient(rgba(0,0,0,0.6)),url("../images/bottom-bg.jpg");
+    @include background();
+    text: {
+        align: center;
+        transform: uppercase;
+    }
+    color: $white;
+    &__title {
+        font: {
+            size: 7.2rem;
+            weight: bold;
+        }
+    }
+
+    &__desc {
+        font: {
+            size: 3rem;
+            family: $secondary-font;
+        }
+        margin-top: 2.5rem;
+    }
+}

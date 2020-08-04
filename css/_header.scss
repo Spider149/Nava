@@ -18,6 +18,12 @@
                 color: $white;
                 font-weight: bold;
                 padding: 1rem 2rem;
+                &:hover {
+                    color: $primary-color;
+                    font-weight: bolder;
+                    transform: scale(1.1);
+                    transition: all 0.25s;
+                }
             }
         }
     }
@@ -65,6 +71,7 @@
             }
             border-top-right-radius: .5rem;
             border-bottom-right-radius: .5rem;
+            cursor: pointer;
             @include flex(row,center,center);
             @include same-height-vertical-form();
         }

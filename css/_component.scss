@@ -1,0 +1,101 @@
+.card {
+    position: relative;
+    width: calc(37000% / 1170);
+    margin-top: 3rem;
+    border-radius: .5rem;
+    overflow: hidden;
+
+    &__img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+        transition: all 0.25s linear;
+    }
+
+    &__content {
+        padding: 3rem 2.5rem;
+        @include flex(column,flex-start,space-between);
+        @include all-space();
+        position: absolute;
+        z-index: 2;
+    }
+
+    &__top {
+        @include flex();
+        background-color: $primary-color;
+        border-radius:.5rem;
+        padding: 1rem;
+        span{
+            font: {
+                weight:bold;
+                size:1.6rem;
+                family:$secondary-font;
+            }
+            color: $white;
+            margin-left: 1rem;
+        }
+    }
+
+    &__bottom {
+        color: $white;
+    }
+
+    &__title {
+        font-size: 3rem;
+    }
+
+    &__info {
+        font-size: 2rem;
+        margin-top: 1rem;
+    }
+
+    &--big {
+        width: calc(77000% / 1170);
+    }
+    
+    &::before {
+        content: "";
+        @include all-space();
+        background: linear-gradient(180deg,transparent,$black);
+        opacity: 0.6;
+        z-index: 1;
+    }
+
+    &:hover {
+        .card__img {
+            transform: scale(1.1);
+        }
+    }
+
+}
+
+.btn {
+    padding: 2rem 4rem;
+    margin: 10rem 0 8rem;
+    font: {
+        size: 1.4rem;
+        weight: bold;
+    }
+    border-radius: .5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s linear;
+    &--white {
+        border: 1px solid $light-gray-text;
+        background-color: $white;
+        color: $gray-text;
+        &:hover {
+            background-color: $light-gray-text;
+            color: $white;
+        }
+    }
+    &--red {
+        border: none;
+        background-color: $primary-color;
+        color: $white;
+        &:hover {
+            background-color: $white;
+            color: $primary-color;
+        }
+    }
+}
