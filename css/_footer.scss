@@ -1,0 +1,90 @@
+.footer {
+    background: $secondary-color repeating-linear-gradient(135deg,$primary-color 0px, $primary-color 15px,$navy 15px, $navy 20px) no-repeat;
+    background-size: 100% 6px;
+    padding: 6rem 0 7rem;
+    &__inner {
+        @include flex(row,flex-start,space-between);
+        color: $white;
+        font-size: 1.4rem;
+    }
+
+    &__content:first-child {
+        width: 100% / 12 * 3;
+    }
+
+    &__content:last-child, &__content:nth-child(2) {
+        width: 100% / 12 * 2;
+    }
+
+    &__content:nth-child(3) {
+        width: 100% / 12 * 5;
+    }
+
+    &__heading {
+        font: {
+            weight: bold;
+            family: $secondary-font;
+        }
+        text-transform: uppercase;
+    }
+
+    &__list {
+        @include flex(column,flex-start);
+    }
+
+    &__list-item {
+        padding-top: 2rem;
+        a {
+            color: $white;
+            position: relative;
+        }
+
+        a:after {
+            content: "";
+            width: 0;
+            height: 2px;
+            background-color: $white;
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        a:hover:after {
+            opacity: 1;
+            width: 100%;
+        }
+    }
+
+    &__form .btn {
+        padding: 1rem 3rem;
+        font-weight: normal;
+    }
+
+    &__social {
+        @include flex(row,center,flex-start);
+        margin-top: 3.5rem;
+
+        li:not(:last-child){
+            margin-right: 1.8rem;
+        }
+
+        a {
+            background-color: $light-gray-text;
+            color: $white;
+            width: 4.5rem;
+            height: 4.5rem;
+            text-align: center;
+            line-height: 4.5rem;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            transform: scale(1.15);
+            color: $primary-color;
+            background-color: white;
+        }
+    }
+}

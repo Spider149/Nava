@@ -23,8 +23,8 @@
     bottom: 0;
 }
 
-@mixin same-height-vertical-form {
-    padding: 2rem 2.5rem;
+@mixin same-height-vertical-form($padding) {
+    padding: $padding;
     border: 0;
     font-family: inherit;
     font-size: 1.4rem;

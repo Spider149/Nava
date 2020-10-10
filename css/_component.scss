@@ -1,6 +1,32 @@
+.section {
+    margin-top: 10rem;
+    position: relative;
+    text-align: center;
+    &__heading {
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: $gray-text;
+        
+    }
+    &__desc {
+        font: {
+            family: $secondary-font;
+            size: 1.6rem;
+        }
+        margin-top: 3rem;
+        color: $light-gray-text;
+    }
+    &__content {
+        margin-top: 5rem;
+        @include flex();
+        flex-wrap: wrap;
+        text-align: left;
+    }
+}
+
 .card {
     position: relative;
-    width: calc(37000% / 1170);
+    width: (37000% / 1170);
     margin-top: 3rem;
     border-radius: .5rem;
     overflow: hidden;
@@ -50,7 +76,7 @@
     }
 
     &--big {
-        width: calc(77000% / 1170);
+        width: (77000% / 1170);
     }
     
     &::before {
@@ -75,6 +101,7 @@
     font: {
         size: 1.4rem;
         weight: bold;
+        family: inherit;
     }
     border-radius: .5rem;
     text-transform: uppercase;
@@ -99,3 +126,58 @@
         }
     }
 }
+
+.form {
+    margin: 0 auto;
+    @include flex();
+    &__input {
+        border-radius: .5rem 0 0 .5rem;
+    }
+
+    &__input::placeholder {
+        font-family: inherit;
+        color: $light-gray-text;
+    }
+    
+    &__submit {
+        font-weight: bold;
+        color: $white;
+        background-color: $primary-color;
+        img {
+            display: inline;
+            margin-right: 1rem;
+        }
+        border-radius: 0 .5rem .5rem 0;
+        cursor: pointer;
+    }
+}
+
+.header__form {
+    max-width: 77.5rem;
+    .form__input {
+        width: 57.5rem;
+        @include same-height-vertical-form(2rem 2.5rem);
+    }
+    .form__submit {
+        width: 20rem;
+        @include same-height-vertical-form(2rem 2.5rem);
+        @include flex(row,center,center);
+    }
+}
+
+.footer__form {
+    max-width: 42rem;
+    margin: 2rem 0 0 0;
+    .form__input {
+        width: 27rem;
+        @include same-height-vertical-form(1.5rem 2rem);
+        text-transform: none;
+    }
+    .form__submit {
+        width: 15rem;
+        @include same-height-vertical-form(1.5rem 2rem);
+        @include flex(row,center,center);
+    }
+}
+
+

@@ -1,39 +1,13 @@
-.section {
-    margin-top: 10rem;
-    position: relative;
-    text-align: center;
-    &__heading {
-        font-size: 3rem;
-        text-transform: uppercase;
-        color: $gray-text;
-        
-    }
-    &__desc {
-        font: {
-            family: $secondary-font;
-            size: 1.6rem;
-        }
-        margin-top: 3rem;
-        color: $light-gray-text;
-    }
-    &__content {
-        margin-top: 5rem;
-        @include flex();
-        flex-wrap: wrap;
-        text-align: left;
-    }
-}
-
 .featured {
     .card {
-        width: calc(57300% / 1170);
+        width: (57300% / 1170);
     }
 
     .card__info {
         @include flex();
         font: {
             size: 1.6rem;
-            font-family: $secondary-color;
+            family: $secondary-font;
         }
     }
 
