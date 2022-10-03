@@ -4,20 +4,60 @@
     padding: 6rem 0 7rem;
     &__inner {
         @include flex($align:flex-start);
+        flex-wrap: wrap;
         color: $white;
         font-size: 1.4rem;
+        @include rps(toRem(1100px)) {
+            
+        }
     }
 
-    &__content:first-child {
+    &__locations {
         width: 100% / 12 * 3;
     }
 
-    &__content:last-child, &__content:nth-child(2) {
+    &__featured, &__contact {
         width: 100% / 12 * 2;
     }
 
-    &__content:nth-child(3) {
+    &__featured {
+        @include rps(toRem(360px)) {
+            margin-top: 4rem;
+        }
+    }
+
+    &__contact {
+        @include rps(toRem(580px)) {
+            margin-top: 4rem;
+        }
+    }
+
+    &__content:not(:nth-child(3)){
+        @include rps(toRem(1100px)) {
+            width: 100% / 12 * 2;
+        }
+        @include rps(toRem(1000px)) {
+            width: 100% / 12 * 4;
+        }
+        @include rps(toRem(580px)) {
+            width: 100% / 12 * 6;
+        }
+        @include rps(toRem(360px)) {
+            width: 100% / 12 * 12;
+            text-align: center;
+        }
+    }
+
+    &__subscribe {
         width: 100% / 12 * 5;
+        @include rps(toRem(1100px)) {
+            width: 100% / 12 * 6;
+        }
+        @include rps(toRem(1000px)) {
+            width: 100% / 12 * 12;
+            order: 1;
+            margin-top: 4rem;
+        }
     }
 
     &__heading {
@@ -26,10 +66,6 @@
             family: $secondary-font;
         }
         text-transform: uppercase;
-    }
-
-    &__list {
-        @include flex(column,flex-start);
     }
 
     &__list-item {

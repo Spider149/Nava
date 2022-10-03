@@ -1,6 +1,21 @@
 .featured {
     .card {
         width: (57300% / 1170);
+        @include rps(toRem(768px)){
+            width: 100%;
+        }
+    }
+
+    .card__content {
+        @include rps(toRem(480px)){
+            padding: 1.5rem;
+        }
+    }
+
+    .card__top span{
+        @include rps(toRem(480px)){
+            font-size: 1.3rem
+        }
     }
 
     .card__info {
@@ -9,17 +24,51 @@
             size: 1.6rem;
             family: $secondary-font;
         }
+        @include rps(toRem(480px)){
+            font-size: 1.3rem; 
+        }
     }
 
     .card__info-left, .card__info-right {
         @include flex;
         img {
             display: inline;
-            margin-right: .5rem;
+            margin-right: 0.5rem;
         }
     }
 
     .card__info-left {
         margin-right: 2.5rem;
+    }
+}
+
+.explore {
+    &__content {
+        @include rps(toRem(768px)){
+            align-items: stretch;
+        }
+    }
+
+    .card {
+        @include rps(toRem(768px)){
+            width: calc(50% - 1.5rem);
+        }
+
+        @include rps(toRem(580px)){
+            width: 100%;
+        }
+    }
+
+    & > button {
+        @include rps(toRem(400px)){
+            padding: 2rem;
+        }
+    }
+}
+
+.section__content {
+    @include rps(toRem(580px)){
+        display: grid;
+        grid-auto-rows: 1fr;
     }
 }

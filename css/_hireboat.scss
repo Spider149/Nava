@@ -12,6 +12,15 @@
             size: 7.2rem;
             weight: bold;
         }
+        @include rps(toRem(900px)){
+            font-size: 6rem;
+        }
+        @include rps(toRem(768px)){
+            font-size: 5rem;
+        }
+        @include rps(toRem(480px)){
+            font-size: 4rem;
+        }
     }
 
     &__desc {
@@ -20,5 +29,20 @@
             family: $secondary-font;
         }
         margin-top: 2.5rem;
+        @include rps(toRem(900px)){
+            font-size: 2.5rem;
+        }
+        @include rps(toRem(768px)){
+            font-size: 2rem;
+        }
+        @include rps(toRem(480px)){
+            font-size: 1.6rem;
+        }
+    }
+
+    &__content > button {
+        @include rps(toRem(480px)){
+            padding: 2rem;
+        }
     }
 }

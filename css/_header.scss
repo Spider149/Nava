@@ -124,15 +124,17 @@
         @include flex(row,center,center);
         width: calc(2000% / 77.5);
         padding: 2rem 2.5rem;
-        @include rps(toRem(580px)){
-            width: 20%;
-            padding: 1rem;
-            font-size: 1.2rem;
-        }
+
         & span {
             @include rps(toRem(580px)){
                 display: none;
             }
+        }
+
+        @include rps(toRem(580px)){
+            width: 20%;
+            padding: 1rem;
+            font-size: 1.2rem;
         }
     }
 }

@@ -63,6 +63,8 @@ body {
 img {
   display: block;
   max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 a {
@@ -137,10 +139,15 @@ a {
   overflow: hidden;
 }
 
+.card__image {
+  height: 100%;
+}
+
 .card__img {
-  width: 100%;
   -webkit-transition: all 0.25s linear;
   transition: all 0.25s linear;
+  width: 100%;
+  height: 100%;
 }
 
 .card__content {
@@ -606,16 +613,16 @@ a {
 }
 
 @media screen and (max-width: 36.25rem) {
-  .header__form .form__submit {
-    width: 20%;
-    padding: 1rem;
-    font-size: 1.2rem;
+  .header__form .form__submit span {
+    display: none;
   }
 }
 
 @media screen and (max-width: 36.25rem) {
-  .header__form .form__submit span {
-    display: none;
+  .header__form .form__submit {
+    width: 20%;
+    padding: 1rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -633,6 +640,8 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   position: relative;
   background-color: #ffffff;
   border-radius: .5rem;
@@ -643,11 +652,13 @@ a {
 }
 
 .numbers__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0;
+          flex: 0 0;
   font-family: "Open Sans", sans-serif;
   text-align: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
 }
 
 .numbers__item span {
@@ -668,8 +679,51 @@ a {
   border-right: 1px solid #717171;
 }
 
+@media screen and (max-width: 48rem) {
+  .numbers__item:not(:last-child) {
+    border-right: 0;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .numbers__item:nth-child(n + 3) {
+    padding-top: 3rem;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .numbers__item:nth-child(2n + 1) {
+    border-right: 1px solid #717171;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .numbers__item {
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+}
+
 .featured .card {
   width: 48.97436%;
+}
+
+@media screen and (max-width: 48rem) {
+  .featured .card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .featured .card__content {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .featured .card__top span {
+    font-size: 1.3rem;
+  }
 }
 
 .featured .card__info {
@@ -690,6 +744,12 @@ a {
   font-family: "Open Sans", sans-serif;
 }
 
+@media screen and (max-width: 30rem) {
+  .featured .card__info {
+    font-size: 1.3rem;
+  }
+}
+
 .featured .card__info-left, .featured .card__info-right {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -708,11 +768,45 @@ a {
 
 .featured .card__info-left img, .featured .card__info-right img {
   display: inline;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 .featured .card__info-left {
   margin-right: 2.5rem;
+}
+
+@media screen and (max-width: 48rem) {
+  .explore__content {
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .explore .card {
+    width: calc(50% - 1.5rem);
+  }
+}
+
+@media screen and (max-width: 36.25rem) {
+  .explore .card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 25rem) {
+  .explore > button {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 36.25rem) {
+  .section__content {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-rows: 1fr;
+  }
 }
 
 .hire-boat {
@@ -732,10 +826,52 @@ a {
   font-weight: bold;
 }
 
+@media screen and (max-width: 56.25rem) {
+  .hire-boat__title {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .hire-boat__title {
+    font-size: 5rem;
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .hire-boat__title {
+    font-size: 4rem;
+  }
+}
+
 .hire-boat__desc {
   font-size: 3rem;
   font-family: "Open Sans", sans-serif;
   margin-top: 2.5rem;
+}
+
+@media screen and (max-width: 56.25rem) {
+  .hire-boat__desc {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .hire-boat__desc {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .hire-boat__desc {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .hire-boat__content > button {
+    padding: 2rem;
+  }
 }
 
 .footer {
@@ -758,42 +894,81 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   color: #ffffff;
   font-size: 1.4rem;
 }
 
-.footer__content:first-child {
+.footer__locations {
   width: 25%;
 }
 
-.footer__content:last-child, .footer__content:nth-child(2) {
+.footer__featured, .footer__contact {
   width: 16.66667%;
 }
 
-.footer__content:nth-child(3) {
+@media screen and (max-width: 22.5rem) {
+  .footer__featured {
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 36.25rem) {
+  .footer__contact {
+    margin-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 68.75rem) {
+  .footer__content:not(:nth-child(3)) {
+    width: 16.66667%;
+  }
+}
+
+@media screen and (max-width: 62.5rem) {
+  .footer__content:not(:nth-child(3)) {
+    width: 33.33333%;
+  }
+}
+
+@media screen and (max-width: 36.25rem) {
+  .footer__content:not(:nth-child(3)) {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 22.5rem) {
+  .footer__content:not(:nth-child(3)) {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.footer__subscribe {
   width: 41.66667%;
+}
+
+@media screen and (max-width: 68.75rem) {
+  .footer__subscribe {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 62.5rem) {
+  .footer__subscribe {
+    width: 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-top: 4rem;
+  }
 }
 
 .footer__heading {
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
-}
-
-.footer__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .footer__list-item {

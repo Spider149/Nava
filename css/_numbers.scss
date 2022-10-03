@@ -1,15 +1,18 @@
 .numbers {
     @include flex;
+    flex-wrap: wrap;
     position: relative;
     background-color: $white;
     border-radius: .5rem;
     padding: 3rem 0;
     margin-top: -7rem;
     box-shadow: 0 0 3rem 0rem $shadow;
+
     &__item {
+        flex: 0 0;
         font-family: $secondary-font;
         text-align: center;
-        flex: 1;
+        flex-basis: 25%;
         span {
             color: $gray-text;
             font: {
@@ -26,6 +29,22 @@
         }
         &:not(:last-child){
             border-right: 1px solid $light-gray-text;
+            @include rps(toRem(768px)){
+                border-right: 0;
+            }
+        }
+        &:nth-child(n + 3){
+            @include rps(toRem(768px)){
+                padding-top: 3rem;
+            }
+        }
+        &:nth-child(2n + 1){
+            @include rps(toRem(768px)){
+                border-right: 1px solid $light-gray-text;
+            }
+        }
+        @include rps(toRem(768px)){
+            flex-basis: 50%;
         }
     }
 }
