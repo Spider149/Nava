@@ -20,6 +20,10 @@
                 }
             }
             &__item {
+                transition: all 0.25s;
+                &:hover {
+                    transform: scale(1.1);
+                }
                 &:last-child {
                     border: 1px solid $white;
                     margin-left: 2rem;
@@ -42,6 +46,9 @@
                 font: {
                     weight: bold;
                     size: 1.6rem;
+                }
+                &:hover {
+                    transform: scale(1.1);
                 }
                 @include rps(toRem(768px)) {
                     font-size: 2rem;

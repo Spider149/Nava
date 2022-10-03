@@ -71,6 +71,7 @@
     &__list-item {
         padding-top: 2rem;
         a {
+            display: inline;
             color: $white;
             position: relative;
         }

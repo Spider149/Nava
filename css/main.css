@@ -462,6 +462,16 @@ a {
   }
 }
 
+.header__top .nav__item {
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.header__top .nav__item:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .header__top .nav__item:last-child {
   border: 1px solid #ffffff;
   margin-left: 2rem;
@@ -492,6 +502,11 @@ a {
   transition: all 0.25s;
   font-weight: bold;
   font-size: 1.6rem;
+}
+
+.header__top .nav__link:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media screen and (max-width: 48rem) {
@@ -976,6 +991,7 @@ a {
 }
 
 .footer__list-item a {
+  display: inline;
   color: #ffffff;
   position: relative;
 }
