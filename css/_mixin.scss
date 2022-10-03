@@ -11,10 +11,6 @@
     justify-content: $justify;
 }
 
-@mixin border($size:1px,$style:solid,$color:black){
-    border: $size $style $color;
-}
-
 @mixin all-space {
     position: absolute;
     top: 0;
@@ -23,10 +19,15 @@
     bottom: 0;
 }
 
-@mixin same-height-vertical-form($padding) {
-    padding: $padding;
-    border: 0;
-    font-family: inherit;
-    font-size: 1.4rem;
-    text-transform: uppercase;
+@mixin center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+@mixin rps($width){
+    @media screen and(max-width:$width){
+        @content;
+    }
 }

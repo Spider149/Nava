@@ -27,8 +27,7 @@ a {
 .wrapper, 
 .container--big, 
 .container--small {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .wrapper {
@@ -38,8 +37,7 @@ a {
 
 .container--big, .container--small {
     max-width: $big-container;
-    padding-left:1.5rem;
-    padding-right:1.5rem;
+    padding: 0 1.5rem;
 }
 
 .container--small {

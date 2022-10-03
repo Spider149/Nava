@@ -1,7 +1,7 @@
 .hire-boat {
     padding: 18.5rem 0 8rem;
     background: linear-gradient(rgba(0,0,0,0.6)),url("../images/bottom-bg.jpg");
-    @include background();
+    @include background;
     text: {
         align: center;
         transform: uppercase;

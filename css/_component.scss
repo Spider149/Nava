@@ -6,7 +6,6 @@
         font-size: 3rem;
         text-transform: uppercase;
         color: $gray-text;
-        
     }
     &__desc {
         font: {
@@ -18,7 +17,7 @@
     }
     &__content {
         margin-top: 5rem;
-        @include flex();
+        @include flex;
         flex-wrap: wrap;
         text-align: left;
     }
@@ -28,34 +27,31 @@
     position: relative;
     width: (37000% / 1170);
     margin-top: 3rem;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     overflow: hidden;
 
     &__img {
-        max-width: 100%;
-        height: auto;
-        object-fit: cover;
+        width: 100%;
         transition: all 0.25s linear;
     }
 
     &__content {
         padding: 3rem 2.5rem;
-        @include flex(column,flex-start,space-between);
-        @include all-space();
-        position: absolute;
+        @include flex(column, flex-start);
+        @include all-space;
         z-index: 2;
     }
 
     &__top {
-        @include flex();
+        @include flex;
         background-color: $primary-color;
-        border-radius:.5rem;
+        border-radius: 0.5rem;
         padding: 1rem;
-        span{
+        span {
             font: {
-                weight:bold;
-                size:1.6rem;
-                family:$secondary-font;
+                weight: bold;
+                size: 1.6rem;
+                family: $secondary-font;
             }
             color: $white;
             margin-left: 1rem;
@@ -78,11 +74,11 @@
     &--big {
         width: (77000% / 1170);
     }
-    
+
     &::before {
         content: "";
-        @include all-space();
-        background: linear-gradient(180deg,transparent,$black);
+        @include all-space;
+        background: linear-gradient(180deg, transparent, $black);
         opacity: 0.6;
         z-index: 1;
     }
@@ -92,7 +88,6 @@
             transform: scale(1.1);
         }
     }
-
 }
 
 .btn {
@@ -103,7 +98,7 @@
         weight: bold;
         family: inherit;
     }
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.25s linear;
@@ -129,16 +124,24 @@
 
 .form {
     margin: 0 auto;
-    @include flex();
+    @include flex;
+
+    &__input, &__submit {
+        border: 0;
+        font-family: inherit;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
     &__input {
-        border-radius: .5rem 0 0 .5rem;
+        border-radius: 0.5rem 0 0 0.5rem;
     }
 
     &__input::placeholder {
         font-family: inherit;
         color: $light-gray-text;
     }
-    
+
     &__submit {
         font-weight: bold;
         color: $white;
@@ -146,38 +149,57 @@
         img {
             display: inline;
             margin-right: 1rem;
+            @include rps(toRem(768px)) {
+                display: none;
+            }
         }
-        border-radius: 0 .5rem .5rem 0;
+        border-radius: 0 0.5rem 0.5rem 0;
         cursor: pointer;
     }
 }
 
-.header__form {
-    max-width: 77.5rem;
-    .form__input {
-        width: 57.5rem;
-        @include same-height-vertical-form(2rem 2.5rem);
+.menu__button {
+    position: relative;
+    width: 4rem;
+    height: 3rem;
+    cursor: pointer;
+    display: none;
+    span {
+        display: block;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        height: 20%;
+        background-color: $primary-color;
+        border-radius: 0.5rem;
+        opacity: 1;
+        transition: all 0.3s;
     }
-    .form__submit {
-        width: 20rem;
-        @include same-height-vertical-form(2rem 2.5rem);
-        @include flex(row,center,center);
+
+    @for $i from 0 through 2 {
+        span:nth-child(#{$i + 1}) {
+            top: #{$i * 40%};
+        }
+    }
+
+    @include rps(toRem(768px)) {
+        display: block;
     }
 }
 
-.footer__form {
-    max-width: 42rem;
-    margin: 2rem 0 0 0;
-    .form__input {
-        width: 27rem;
-        @include same-height-vertical-form(1.5rem 2rem);
-        text-transform: none;
+.menu__button.open {
+    span:nth-child(1) {
+        top: 40%;
+        transform: rotate(135deg);
     }
-    .form__submit {
-        width: 15rem;
-        @include same-height-vertical-form(1.5rem 2rem);
-        @include flex(row,center,center);
+
+    span:nth-child(2) {
+        opacity: 0;
+        right: -20rem;
+    }
+
+    span:nth-child(3) {    
+        top: 40%;
+        transform: rotate(-135deg);
     }
 }
-
-

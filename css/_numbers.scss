@@ -1,5 +1,5 @@
 .numbers {
-    @include flex();
+    @include flex;
     position: relative;
     background-color: $white;
     border-radius: .5rem;

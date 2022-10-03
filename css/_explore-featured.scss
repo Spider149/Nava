@@ -4,7 +4,7 @@
     }
 
     .card__info {
-        @include flex();
+        @include flex;
         font: {
             size: 1.6rem;
             family: $secondary-font;
@@ -12,7 +12,7 @@
     }
 
     .card__info-left, .card__info-right {
-        @include flex();
+        @include flex;
         img {
             display: inline;
             margin-right: .5rem;

@@ -1,29 +1,73 @@
 .header {
-    background: linear-gradient(rgba(0,0,0,0.6)),url("../images/top-bg.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.6)), url("../images/top-bg.jpg");
     @include background();
-    &__top{
-        @include flex();
+    &__top {
+        @include flex;
         .nav {
             &__list {
-                @include flex();
+                @include flex;
+                @include rps(toRem(768px)) {
+                    @include all-space;
+                    position: fixed;
+                    width: 70vw;
+                    left: -70vw;
+                    right: unset;
+                    background-color: $primary-color;
+                    z-index: 100;
+                    flex-direction: column;
+                    justify-content: center;
+                    transition: left 0.3s;
+                }
             }
             &__item {
                 &:last-child {
-                    @include border(1px,solid,white);
+                    border: 1px solid $white;
                     margin-left: 2rem;
                     border-radius: 3px;
+                    @include rps(toRem(768px)) {
+                        margin-left: 0;
+                        border: 0;
+                    }
+                }
+                @include rps(toRem(768px)) {
+                    transition: none;
+                    transform: translateX(-2rem);
+                    opacity: 0;
                 }
             }
             &__link {
                 color: $white;
-                font-weight: bold;
                 padding: 1rem 2rem;
-                &:hover {
-                    color: $primary-color;
-                    font-weight: bolder;
-                    transition: all 0.25s;
+                transition: all 0.25s;
+                font: {
+                    weight: bold;
+                    size: 1.6rem;
+                }
+                @include rps(toRem(768px)) {
+                    font-size: 2rem;
+                }
+                @include rps(toRem(580px)) {
+                    font-size: 1.6rem;
                 }
             }
+
+            @include rps(toRem(768px)) {
+                &.open {
+                    .nav__list {
+                        left: 0;
+                    }        
+                    $step: 0.2;
+                    @for $i from 1 through 3 {
+                        $step: $step + 0.1;
+                        .nav__item:nth-child(#{$i}) {
+                            transition: all 0.5s #{$step}s;
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+                    } 
+                }
+            }
+
         }
     }
     &__bottom {
@@ -36,6 +80,14 @@
             }
             letter-spacing: 0.5rem;
             margin-bottom: 3rem;
+            @include rps(toRem(968px)) {
+                font-size: 75vw / 1170 * 100;
+                letter-spacing: 5vw / 1170 * 100;
+            }
+            @include rps(toRem(580px)) {
+                font-size: 80vw / 1170 * 100;
+                letter-spacing: 7vw / 1170 * 100;
+            }
         }
         .header__desc {
             font: {
@@ -43,6 +95,12 @@
                 family: $secondary-font;
             }
             margin-bottom: 9rem;
+            @include rps(toRem(968px)) {
+                font-size: 35vw / 1170 * 100;
+            }
+            @include rps(toRem(580px)) {
+                font-size: 50vw / 1170 * 100;
+            }
         }
     }
     position: relative;
@@ -51,3 +109,30 @@
     color: $white;
 }
 
+.header__form {
+    max-width: 77.5rem;
+    .form__input {
+        width: calc(5750% / 77.5);
+        padding: 2rem 2.5rem;
+        @include rps(toRem(580px)){
+            width: 80%;    
+            padding: 1rem;      
+            font-size: 1.2rem;
+        }
+    }
+    .form__submit {
+        @include flex(row,center,center);
+        width: calc(2000% / 77.5);
+        padding: 2rem 2.5rem;
+        @include rps(toRem(580px)){
+            width: 20%;
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+        & span {
+            @include rps(toRem(580px)){
+                display: none;
+            }
+        }
+    }
+}
